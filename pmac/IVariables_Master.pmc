@@ -1,0 +1,4 @@
+I19 = 6807 ; Clock source, MACRO IC 0
+I6800 = I7000 ; Macro IC 0 MaxPhase/PWM Frequency Control
+I6801 = I7001 ; Macro IC 0 Phase Clock Frequency Control
+I6802 = I7002 ; Macro IC 0 Servo Clock Frequency Control

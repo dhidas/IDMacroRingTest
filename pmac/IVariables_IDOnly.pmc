@@ -1,0 +1,31 @@
+I7003=2290   ; Servo IC 0 PFM Clock divider equal to 6
+I7004=13a    ; Servo IC 0 PFM Pulse Width Control equal to 13
+I7016=3      ; Servo IC 0, Channels 1-4 Output Mode Select to PFM
+I7010=8      ; Servo IC 0, Channels 1-4 Encoder Decode, Internal Pulse and Direction
+
+I102=$78004  ; Channel 1, PFM
+I169=2427    ; Output Command Limit
+
+M107->Y:$78004,8,16,S   ; Channel 1, Min=0, Max= Calculated I169
+
+I103=$3501 ; Position loop feedback address
+I104=$3501 ; Velocity look feedback address
+
+
+I116=1     ; Max program speed [cts/msec]
+I117=0.01  ; Program max acceleratio
+I119=0.01  ; Jog max acceleration
+I122=1     ; Max jog speed [cts/msec]
+
+;; DANGER
+I124=$20001  ; Override hardware limits
+
+I130=11190   ; PID Proportional gain
+I131=0       ; PID Derivative gain
+I132=15038   ; PID Velocity feedforward gain
+I133=0       ; PID Integral gain
+I134=0       ; PID Integration mode
+I135=0       ; PID Acceleration feedforward gain
+
+
+
