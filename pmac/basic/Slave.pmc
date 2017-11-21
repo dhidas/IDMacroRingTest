@@ -1,3 +1,6 @@
+#include "MVariables.pmc"
+
+
 
 // Channels 1-4 PFM Clock Settings
 I7003=2290        ; Servo IC 0 PFM Clock divider equal to 6
@@ -77,16 +80,21 @@ I135,8,100=0          ; Motors 1-8 Acceleration FeedForward Gain
 
 
 
-I6800=I7000     ; Macro IC0 MaxPhase/PWM Frequency Control
-I6801=I7001     ; Macro IC0 Phase Clock Frequency Control
-I6802=I7002     ; Macro IC0 Servo Clock Frequency Control
 
 
-I6840=$4030     ; Macro IC0 Ring Configuration/Status, typical master IC setting
+
+
+
+I19=6807        ; Clock source, MACRO IC 0
+I6800=I7000     ; Macro IC 0 MaxPhase/PWM Frequency Control
+I6801=I7001     ; Macro IC 0 Phase Clock Frequency Control
+I6802=I7002     ; Macro IC 0 Servo Clock Frequency Control
+
+
+
+I85=1           ; Station number #1 – User Input
+I6840=$4080     ; Macro IC0 Ring Configuration/Status, typical slave setting
 I6841=$0FF333   ; Macro IC0 Node Activate Ctrl (Servo nodes 0, 1, 4, 5, 8, 9, 12, 13) – User Input
-I78=32          ; Macro Type 1 Master/Slave Communications Timeout
-I70=$3333       ; Macro IC 0 Node Auxiliary Register Enable (for 8 macro motors)
-I71=0           ; Type 0 MX Mode
 
 #define RingCheckPeriod 20    ; Suggested Ring Check Period [msec]
 #define FatalPackErr    15    ; Suggested Fatal Packet Error Percentage [%]
@@ -94,26 +102,13 @@ I80=INT(RingCheckPeriod *8388608/I10/(I8+1)+1)    ; Macro Ring Check Period [Ser
 I81=INT(I80* FatalPackErr /100+1)                 ; Macro Maximum Ring Error Count
 I82=I80-I81*4                                     ; Macro Minimum Sync Packet Count
 
-
-I900,8,100=1        ; Activate channels 9-16
-I924,8,100=$40001   ; Channels 9-16 flag control
-
-
-
-
-
-I916,8,100=1          ; Max program speed [cts/msec]
-I917,8,100=0.01       ; Program max acceleratio
-I919,8,100=0.01       ; Jog max acceleration
-I922,8,100=1          ; Max jog speed [cts/msec]
-
-// Channels 1-4 PID Gains (with default clock settings):
-I930,8,100=11190      ; Motors 1-8 Proportional Gain
-I931,8,100=0          ; Motors 1-8 Derivative Gain
-I932,8,100=15038      ; Motors 1-8 Velocity FeedForward Gain
-I933,8,100=0          ; Motors 1-8 Integral Gain
-I934,8,100=0          ; Motors 1-8 Integral Mode
-I935,8,100=0          ; Motors 1-8 Acceleration FeedForward Gain
-
+I144=$178423    ; Macro IC0 Node  0 Command Address. Torque Mode
+I244=$178427    ; Macro IC0 Node  1 Command Address. Torque Mode
+I344=$17842B    ; Macro IC0 Node  4 Command Address. Torque Mode
+I444=$17842F    ; Macro IC0 Node  5 Command Address. Torque Mode
+I544=$178433    ; Macro IC0 Node  8 Command Address. Torque Mode
+I644=$178437    ; Macro IC0 Node  9 Command Address. Torque Mode
+I744=$17843B    ; Macro IC0 Node 12 Command Address. Torque Mode
+I844=$17843F    ; Macro IC0 Node 13 Command Address. Torque Mode
 
 

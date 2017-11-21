@@ -1,3 +1,6 @@
+#include "MVariables.pmc"
+
+
 
 // Channels 1-4 PFM Clock Settings
 I7003=2290        ; Servo IC 0 PFM Clock divider equal to 6
