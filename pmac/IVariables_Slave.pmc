@@ -1,0 +1,111 @@
+
+// Channels 1-4 PFM Clock Settings
+I7003=2290        ; Servo IC 0 PFM Clock divider equal to 6
+I7004=13          ; Servo IC 0 PFM Pulse Width Control equal to 13
+I169,4,100=2427   ; Channels 1-4 Output Command Limit
+
+// Channels 5-8 PFM Clock Settings
+I7103=2290        ; Servo IC 1 PFM Clock divider equal to 6
+I7104=13          ; Servo IC 1 PFM Pulse Width Control equal to 13
+I569,4,100=2427   ; Output Command Limit
+
+
+// Encoder Conversion Table, for channels 1-4
+I8000=$C78000     ; Entry 1 incremental encoder, no extension
+I8001=$C78008     ; Entry 2 incremental encoder, no extension
+I8002=$C78010     ; Entry 3 incremental encoder, no extension
+I8003=$C78018     ; Entry 4 incremental encoder, no extension
+// Encoder Conversion Table, for channels 5-8
+I8004=$C78100     ; Entry 5 incremental encoder, no extension
+I8005=$C78108     ; Entry 6 incremental encoder, no extension
+I8006=$C78110     ; Entry 7 incremental encoder, no extension
+I8007=$C78118     ; Entry 8 incremental encoder, no extension
+
+
+// Channels 1-4 Output Mode Select, Encoder/Decode
+I7016,4,10=3      ; Servo IC 0, Channels 1-4 Output Mode Select to PFM
+I7010,4,10=8      ; Servo IC 1, Channels 5-8 Encoder Decode, Internal Pulse and Direction
+
+// Channels 1-4 Command Output Register
+I102=$78004       ; Channel 1, PFM
+I202=$7800c       ; Channel 2, PFM
+I302=$78014       ; Channel 3, PFM
+I402=$7801C       ; Channel 4, PFM
+// Channels 5-8 Command Output Register
+I502=$78104       ; Channel 5, PFM
+I602=$7810C       ; Channel 6, PFM
+I702=$78114       ; Channel 7, PFM
+I802=$7811C       ; Channel 8, PFM
+
+
+
+I100,4,100=0      ; Channels 1-4 inactive
+I500,4,100=0      ; Channels 5-8 inactive
+
+
+I100=1            ; Channel 1 active
+
+I103=$3501 I104=$3501 ; Channel 1 position and velocity pointers
+I203=$3502 I204=$3502 ; Channel 2 position and velocity pointers
+I303=$3503 I304=$3503 ; Channel 3 position and velocity pointers
+I403=$3504 I404=$3504 ; Channel 4 position and velocity pointers
+I503=$3505 I504=$3505 ; Channel 5 position and velocity pointers
+I603=$3506 I604=$3506 ; Channel 6 position and velocity pointers
+I703=$3507 I704=$3507 ; Channel 7 position and velocity pointers
+I803=$3508 I804=$3508 ; Channel 8 position and velocity pointers
+
+
+
+
+
+I116,8,100=1          ; Max program speed [cts/msec]
+I117,8,100=0.01       ; Program max acceleratio
+I119,8,100=0.01       ; Jog max acceleration
+I122,8,100=1          ; Max jog speed [cts/msec]
+
+// Channels 1-4 PID Gains (with default clock settings):
+I130,8,100=11190      ; Motors 1-8 Proportional Gain
+I131,8,100=0          ; Motors 1-8 Derivative Gain
+I132,8,100=15038      ; Motors 1-8 Velocity FeedForward Gain
+I133,8,100=0          ; Motors 1-8 Integral Gain
+I134,8,100=0          ; Motors 1-8 Integral Mode
+I135,8,100=0          ; Motors 1-8 Acceleration FeedForward Gain
+
+
+
+
+
+
+
+
+
+
+
+
+I19=6807        ; Clock source, MACRO IC 0
+I6800=I7000     ; Macro IC 0 MaxPhase/PWM Frequency Control
+I6801=I7001     ; Macro IC 0 Phase Clock Frequency Control
+I6802=I7002     ; Macro IC 0 Servo Clock Frequency Control
+
+
+
+I85=1           ; Station number #1 – User Input
+I6840=$4080     ; Macro IC0 Ring Configuration/Status, typical slave setting
+I6841=$0FF333   ; Macro IC0 Node Activate Ctrl (Servo nodes 0, 1, 4, 5, 8, 9, 12, 13) – User Input
+
+#define RingCheckPeriod 20    ; Suggested Ring Check Period [msec]
+#define FatalPackErr    15    ; Suggested Fatal Packet Error Percentage [%]
+I80=INT(RingCheckPeriod *8388608/I10/(I8+1)+1)    ; Macro Ring Check Period [Servo Cycles]
+I81=INT(I80* FatalPackErr /100+1)                 ; Macro Maximum Ring Error Count
+I82=I80-I81*4                                     ; Macro Minimum Sync Packet Count
+
+I144=$178423    ; Macro IC0 Node  0 Command Address. Torque Mode
+I244=$178427    ; Macro IC0 Node  1 Command Address. Torque Mode
+I344=$17842B    ; Macro IC0 Node  4 Command Address. Torque Mode
+I444=$17842F    ; Macro IC0 Node  5 Command Address. Torque Mode
+I544=$178433    ; Macro IC0 Node  8 Command Address. Torque Mode
+I644=$178437    ; Macro IC0 Node  9 Command Address. Torque Mode
+I744=$17843B    ; Macro IC0 Node 12 Command Address. Torque Mode
+I844=$17843F    ; Macro IC0 Node 13 Command Address. Torque Mode
+
+
