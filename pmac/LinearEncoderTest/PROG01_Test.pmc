@@ -1,0 +1,38 @@
+CLOSE
+&1
+#1->100000X
+#5->100000X
+
+OPEN PROG 1
+CLEAR
+LINEAR
+ABS
+TA0
+TS0
+
+While (1 = 1)
+X +4
+DWELL100
+X 0
+DWELL100
+X -4
+DWELL100
+X 0
+DWELL100
+EndWhile
+
+CLOSE
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+; Enable PLCs
+I5=3
+
+
+// Channels 1-4 PFM Clock Settings
+I7003=2290        ; Servo IC 0 PFM Clock divider equal to 6
+I7004=1           ; Servo IC 0 PFM Pulse Width Control equal to 13
+I169,4,100=32767   ; Channels 1-4 Output Command Limit
+
+// Channels 5-8 PFM Clock Settings
+I7103=2290        ; Servo IC 1 PFM Clock divider equal to 6
+I7104=1           ; Servo IC 1 PFM Pulse Width Control equal to 13
+I569,4,100=32767   ; Output Command Limit
+
+
+; BiSS Global Control Registers
+M95->X:$78B2F,0,24,U
+M96->X:$78B3F,0,24,U
+
+M95 = $63220B
+M96 = $63220B
+
+; BiSS channel setup registers
+M902->X:$78B24,0,24,U
+M906->X:$78B34,0,24,U
+
+; BiSS data registers A and B
+M912->Y:$78B24,0,24,U
+M916->Y:$78B34,0,24,U
+
+M922->Y:$78B25,0,24,U
+M924->Y:$78B35,0,24,U
+
+M902 = $21149A
+M906 = $21149A
+
+
+
+
+// Encoder Conversion Table, for channels 1
+I8000=$078000     ; Entry 1 incremental encoder, no extension
+
+// BissC on ch2
+I8001 = $278B24
+I8002 = $01F000   ; 26 (+5 for fractional shift above)-bit with LSB at 0
+
+// Encoder Conversion Table, for channels 5
+I8003=$078100     ; Entry 5 incremental encoder, no extension
+
+// BissC on ch6
+I8004 = $278B34   ; Parallel Y-word data, no filtering
+I8005 = $01F000   ; 26 (+5 for fractional shift above)-bit with LSB at 0
+
+// End of table
+I8006=$000000
+
+
+
+// Channels 1-4 Output Mode Select, Encoder/Decode
+I7016,4,10=3      ; Servo IC 0, Channels 1
+I7010,4,10=3      ; Servo IC 0, Channels 1
+;I7018,4,10=1      ; Servo IC m Channel n PFM Direction Signal Invert Control
+
+// Channels 5-8 Output Mode Select, Encoder/Decode
+I7116,4,10=3      ; Servo IC 1, Channels 5-8 Output Mode Select to PFM
+I7110,4,10=3      ; Servo IC 1, Channels 5-8 Encoder Decode
+;I7118,4,10=1      ; Servo IC m Channel n PFM Direction Signal Invert Control
+
+// Channels 1 Command Output Register
+I102=$78004       ; Channel 1, PFM
+// Channels 5 Command Output Register
+I502=$78104       ; Channel 5, PFM
+
+
+
+;I124=$800401
+;I524=$800401
+I224=$820401
+I624=$820401
+
+
+I100,8,100=0      ; Channels 1-4 inactive
+
+
+I100,2,100=1            ; Channel 1,2 active
+I500,2,100=1            ; Channel 5,6 active
+
+I103=$3503 I104=$3503 ; Channel 1 position and velocity pointers
+I203=$3501 I204=$3501 ; Channel 2 position and velocity pointers
+I503=$3506 I504=$3506 ; Channel 5 position and velocity pointers
+I603=$3504 I604=$3504 ; Channel 6 position and velocity pointers
+
+
+I111,2,400=1000000          ; Max program speed [cts/msec]
+
+I116,2,400=1100          ; Max program speed [cts/msec]
+I117,2,400=10       ; Program max acceleratio
+I119,2,400=10       ; Jog max acceleration
+I122,2,400=200          ; Max jog speed [cts/msec]
+I123,2,400=-200          ; Max jog speed [cts/msec]
+
+// Channels 1,5 PID Gains (with default clock settings):
+;I130,2,400=11190      ; Motors 1-8 Proportional Gain
+;I131,2,400=0          ; Motors 1-8 Derivative Gain
+;I132,2,400=15038      ; Motors 1-8 Velocity FeedForward Gain
+;I133,2,400=0          ; Motors 1-8 Integral Gain
+;I134,2,400=0          ; Motors 1-8 Integral Mode
+;I135,2,400=0          ; Motors 1-8 Acceleration FeedForward Gain
+
+// Channels 1,5 PID Gains (with default clock settings):
+I130,2,400=2000      ; Motors 1-8 Proportional Gain
+I131,2,400=0          ; Motors 1-8 Derivative Gain
+I132,2,400=0      ; Motors 1-8 Velocity FeedForward Gain
+I133,2,400=0          ; Motors 1-8 Integral Gain
+I134,2,400=0          ; Motors 1-8 Integral Mode
+I135,2,400=0          ; Motors 1-8 Acceleration FeedForward Gain
+
+
+
+
+
+
+
+
+

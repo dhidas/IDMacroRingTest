@@ -1,0 +1,13 @@
+Open PLC 1
+
+disable PLC 0
+disable PLCC 0..31
+disable PLC 2..31
+CMD^K
+
+CMD "#1$ #5$"
+
+disable plc 1
+
+close
+
