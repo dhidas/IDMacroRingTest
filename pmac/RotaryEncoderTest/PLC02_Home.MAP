@@ -1,0 +1,22 @@
+;Map created by PMAC Win32 Driver from file: C:\Users\dhidas\Dropbox\IDMacroRingTest\pmac\RotaryEncoderTest\PLC02_Home.pmc
+;
+
+
+; DEFINES sorted by KEY --------------------------
+_DPRAMBASE_                      $60000
+_DPRAMMAX_                       $C1DD0
+_DPRAMSIZE_                      $61000
+_DPRAMUSERBASE_                  $60DD0
+_PMAC2_                          
+_QMAC_                           
+_TURBO_                          
+
+
+; DEFINES sorted by VALUE ------------------------
+                                 _PMAC2_
+                                 _QMAC_
+                                 _TURBO_
+$60000                           _DPRAMBASE_
+$60DD0                           _DPRAMUSERBASE_
+$61000                           _DPRAMSIZE_
+$C1DD0                           _DPRAMMAX_

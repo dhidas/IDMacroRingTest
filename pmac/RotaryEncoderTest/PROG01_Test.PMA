@@ -1,0 +1,42 @@
+; Created by PMAC Win32 Driver from:C:\Users\dhidas\Dropbox\IDMacroRingTest\pmac\RotaryEncoderTest\PROG01_Test.pmc
+;
+;C:\Users\dhidas\Dropbox\IDMacroRingTest\pmac\RotaryEncoderTest\PROG01_Test.pmc
+CLOSE;1
+&1;2
+#1->100000X;3
+#5->100000X;4
+OPEN PROG 1;6
+CLEAR;7
+LINEAR;8
+ABS;9
+TA0;10
+TS0;11
+While (1 = 1);13
+X +4;14
+DWELL50;15
+X 0;16
+DWELL50;17
+X -4;18
+DWELL50;19
+X 0;20
+DWELL50;21
+EndWhile;22
+CLOSE;24
+OPEN PROG 1;39
+CLEAR;40
+LINEAR;41
+ABS;42
+TA0;43
+TS0;44
+While (1 = 1);46
+X +4;47
+DWELL50;48
+X 0;49
+DWELL50;50
+X -4;51
+DWELL50;52
+X 0;53
+DWELL50;54
+EndWhile;55
+CLOSE;57
+CLOSE

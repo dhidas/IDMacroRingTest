@@ -1,0 +1,8 @@
+Open PLC 1
+
+disable plc 2
+
+disable plc 1
+
+close
+

@@ -28,6 +28,8 @@ I8007=$C78118     ; Entry 8 incremental encoder, no extension
 // Channels 1-4 Output Mode Select, Encoder/Decode
 I7016,4,10=3      ; Servo IC 0, Channels 1-4 Output Mode Select to PFM
 I7010,4,10=8      ; Servo IC 1, Channels 5-8 Encoder Decode, Internal Pulse and Direction
+I7116,4,10=3      ; Servo IC 0, Channels 1-4 Output Mode Select to PFM
+I7110,4,10=8      ; Servo IC 1, Channels 5-8 Encoder Decode, Internal Pulse and Direction
 
 // Channels 1-4 Command Output Register
 I102=$78004       ; Channel 1, PFM
@@ -47,6 +49,7 @@ I500,4,100=0      ; Channels 5-8 inactive
 
 
 I100=1            ; Channel 1 active
+I500=1            ; Channel 1 active
 
 I103=$3501 I104=$3501 ; Channel 1 position and velocity pointers
 I203=$3502 I204=$3502 ; Channel 2 position and velocity pointers
