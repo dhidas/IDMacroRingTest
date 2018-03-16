@@ -54,8 +54,6 @@ I8005 = $01F000   ; 26 (+5 for fractional shift above)-bit with LSB at 0
 // End of table
 I8006=$000000
 
-
-
 // Channels 1-4 Output Mode Select, Encoder/Decode
 I7016,4,10=3      ; Servo IC 0, Channels 1
 I7010,4,10=3      ; Servo IC 0, Channels 1
@@ -93,6 +91,7 @@ I603=$3504 I604=$3504 ; Channel 6 position and velocity pointers
 
 I111,2,400=1000000          ; Max program speed [cts/msec]
 
+I115,2,400=10       ; Program max acceleratio
 I116,2,400=1100          ; Max program speed [cts/msec]
 I117,2,400=10       ; Program max acceleratio
 I119,2,400=10       ; Jog max acceleration

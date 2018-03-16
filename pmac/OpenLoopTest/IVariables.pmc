@@ -89,6 +89,7 @@ I503=$3504 I504=$3504 ; Channel 5 position and velocity pointers
 I603=$3506 I604=$3506 ; Channel 6 position and velocity pointers
 
 
+I115,2,400=10           
 I116,2,400=200          ; Max program speed [cts/msec]
 I117,2,400=10       ; Program max acceleratio
 I119,2,400=10       ; Jog max acceleration

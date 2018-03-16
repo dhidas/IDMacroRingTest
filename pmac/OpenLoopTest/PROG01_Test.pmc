@@ -11,13 +11,13 @@ TA0
 TS0
 
 While (1 = 1)
-X +4
+X 9
 DWELL100
-X 0
+X 5
 DWELL100
-X -4
+X 1
 DWELL100
-X 0
+X 5
 DWELL100
 EndWhile
 
