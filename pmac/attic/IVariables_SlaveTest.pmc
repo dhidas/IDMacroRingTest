@@ -1,0 +1,139 @@
+I5=3
+
+I7003=2290   ; Servo IC 0 PFM Clock divider equal to 6
+I7004=13a    ; Servo IC 0 PFM Pulse Width Control equal to 13
+I7016=3      ; Servo IC 0, Channels 1-4 Output Mode Select to PFM
+I7010=8      ; Servo IC 0, Channels 1-4 Encoder Decode, Internal Pulse and Direction
+
+I102=$78004  ; Channel 1, PFM
+I169=2427    ; Output Command Limit
+
+M107->Y:$78004,8,16,S   ; Channel 1, Min=0, Max= Calculated I169
+
+I103=$3501 ; Position loop feedback address
+I104=$3501 ; Velocity look feedback address
+
+
+I116=1     ; Max program speed [cts/msec]
+I117=0.01  ; Program max acceleratio
+I119=0.01  ; Jog max acceleration
+I122=1     ; Max jog speed [cts/msec]
+
+;; DANGER
+I124=$20001  ; Override hardware limits
+
+I130=11190   ; PID Proportional gain
+I131=0       ; PID Derivative gain
+I132=15038   ; PID Velocity feedforward gain
+I133=0       ; PID Integral gain
+I134=0       ; PID Integration mode
+I135=0       ; PID Acceleration feedforward gain
+
+
+
+
+I19=6807
+I6800=I7000
+I6801=I7001
+I6802=I7002
+
+
+
+
+
+
+
+
+
+
+
+
+
+I85=1           ; Station number #1 (if multiple slaves) – User Input
+I6840=$4080     ; Macro IC0 Ring Configuration/Status (Slave)
+I6841=$0FF333   ; Macro IC0 Node Activate Ctrl (Servo nodes 0, 1, 4, 5, 8, 9, 12, 13) – User Input
+
+#define RingCheckPeriod 20 ; Suggested Ring Check Period [msec]
+#define FatalPackErr    15 ; Suggested Fatal Packet Error Percentage [%]
+
+I80=INT(RingCheckPeriod *8388608/I10/(I8+1)+1)   ; Macro Ring Check Period [Servo Cycles]
+I81=INT(I80* FatalPackErr /100+1)                ; Macro Maximum Ring Error Count
+I82=I80-I81*4                                    ; Macro Minimum Sync Packet Count
+
+
+
+I144=$178423     ; Macro IC0 Node 0 Command Address. Torque Mode
+
+
+
+
+
+
+
+
+
+I8000=$6800BF ; Parallel read of Y/X:$BF  
+I8001=$018018 ; 24 bits starting at X bit0 
+I8002=$EC0001 ; Integrate result from I8001
+
+I8003=$68013F ; Parallel read of Y/X:$13F 
+I8004=$018018 ; 24 bits starting at X bit0 
+I8005=$EC0004 ; Integrate result from I8004
+
+I8006=$6801BF ; Parallel read of Y/X:$1BF 
+I8007=$018018 ; 24 bits starting at X bit0 
+I8008=$EC0007 ; Integrate result from I8007
+
+I8009=$68023F ; Parallel read of Y/X:$23F 
+I8010=$018018 ; 24 bits starting at X bit0 
+I8011=$EC000A ; Integrate result from I8010
+
+I8012=$6802BF ; Parallel read of Y/X:$2BF 
+I8013=$018018 ; 24 bits starting at X bit0 
+I8014=$EC000D ; Integrate result from I8013
+
+I8015=$68033F ; Parallel read of Y/X:$33F 
+I8016=$018018 ; 24 bits starting at X bit0 
+I8017=$EC0010 ; Integrate result from I8016
+
+I8018=$6803BF ; Parallel read of Y/X:$3BF 
+I8019=$018018 ; 24 bits starting at X bit0 
+I8020=$EC0013 ; Integrate result from I8019
+
+I8021=$68043F ; Parallel read of Y/X:$43F 
+I8022=$018018 ; 24 bits starting at X bit0 
+I8023=$EC0016 ; Integrate result from I8022
+
+
+I8024=$6F8420 ; Parallel read of Y/X:$78420 
+I8025=$018000 ; 24 bits starting at Y bit0 
+I8026=$EC0019 ; Integrate result from I8025
+
+I8027=$6F8424 ; Parallel read of Y/X:$78424 
+I8028=$018000 ; 24 bits starting at Y bit0 
+I8029=$EC001C ; Integrate result from I8028
+
+I8030=$6F8428 ; Parallel read of Y/X:$78428 
+I8031=$018000 ; 24 bits starting at Y bit0 
+I8032=$EC001F ; Integrate result from I8031
+
+I8033=$6F842C ; Parallel read of Y/X:$7842C 
+I8034=$018000 ; 24 bits starting at Y bit0 
+I8035=$EC0022 ; Integrate result from I8030
+
+I8036=$6F8430 ; Parallel read of Y/X:$78430 
+I8037=$018000 ; 24 bits starting at Y bit0 
+I8038=$EC0025 ; Integrate result from I8037
+
+I8039=$6F8434 ; Parallel read of Y/X:$78434 
+I8040=$018000 ; 24 bits starting at Y bit0 
+I8041=$EC0028 ; Integrate result from I8040
+
+I8042=$6F8438 ; Parallel read of Y/X:$78438 
+I8043=$018000 ; 24 bits starting at Y bit0 
+I8044=$EC002B ; Integrate result from I8043
+
+I8045=$6F843C ; Parallel read of Y/X:$7843C 
+I8046=$018000 ; 24 bits starting at Y bit0 
+I8047=$EC002E ; Integrate result from I8046
+

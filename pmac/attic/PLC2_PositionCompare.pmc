@@ -1,0 +1,20 @@
+#define PE P1000 ; Encoder Position [cts]
+#define PM P1001 ; Motor Position [cts]
+#define CH P1002 ; Home Compensation [cts]
+#define PA P1003 ; Desired Axis Position for Compare [user units] - User Input
+#define KA P1004 ; Axis Offset [counts]
+#define Mtr1AxisScaleFactor   M191
+#define Mtr1HomeCapPos        M173
+#define Mtr1PosBias           M164
+#define Mtr1HomeOffset        I126
+#define Mtr1PosSF             I108
+
+I5 = 2
+
+Open PLC 2 Clear
+CH = Mtr1HomeCapPos + Mtr1HomeOffset/16
+KA = Mtr1PosBias / (Mtr1PosSF*32)
+PM = Mtr1AxisScaleFactor * PA + KA
+PE = PM + CH
+Disable PLC 2
+Close

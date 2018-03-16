@@ -1,0 +1,7 @@
+Open plc 0
+
+enable plc 1
+
+disable plc 0
+
+Close

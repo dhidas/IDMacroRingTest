@@ -1,0 +1,28 @@
+P8000=0 ; Handshaking flag
+
+Open PLC 1 Clear
+IF (P8000 = 1)
+  CMD"#1K"
+  I5111=250*8388608/I10 While(I5111>0) EndW
+
+  I144=0        ; Turn Auxiliary Control off
+  I103=$3503    ; Set position pointer to local control ECT
+  I104=$3503    ; Set velocity pointer to local control ECT
+  I183=$3503    ; Set commutation pointer to local control ECT
+  I5111=250*8388608/I10 While(I5111>0) EndW
+
+  CMD"#1$"
+  I5111=500*8388608/I10 While(I5111>0) EndW
+
+  CMD"#1$"
+  I5111=500*8388608/I10 While(I5111>0) EndW
+
+  I144=$178423  ; Turn Auxiliary Control on
+  I103=$351B
+  I104=I103
+  I183=I103
+  I5111=500*8388608/I10 While(I5111>0) EndW
+
+  P8000=0
+EndIf
+Close
