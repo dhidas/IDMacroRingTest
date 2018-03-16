@@ -5,6 +5,16 @@ disable PLCC 0..31
 disable PLC 2..31
 CMD^K
 
+
+; Setting global control registers
+M95 = $63220B
+M96 = $63220B
+
+; Setting channel control registers
+M902 = $21149A
+M906 = $21149A
+
+
 CMD "#1$ #5$"
 
 disable plc 1
