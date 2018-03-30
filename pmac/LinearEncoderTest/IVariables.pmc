@@ -83,6 +83,11 @@ I203=$3501 I204=$3501 ; Channel 2 position and velocity pointers
 I503=$3506 I504=$3506 ; Channel 5 position and velocity pointers
 I603=$3504 I604=$3504 ; Channel 6 position and velocity pointers
 
+I110=$78B24         ; Power on servo position address
+I510=$78B34         ; Power on servo position address
+
+I195=$200000        ; Power on sevo position format
+I595=$200000        ; Power on sevo position format
 
 I111,2,400=1000000          ; Max program speed [cts/msec]
 
