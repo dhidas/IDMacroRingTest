@@ -13,8 +13,8 @@ epicsEnvSet("ENGINEER", "Dean Andrew Hidas is not an engineer. <dhidas@bnl.gov>"
 epicsEnvSet("PMACUTIL", "/usr/share/epics-pmacutil-dev")
 #epicsEnvSet("PMAC1_IP", "192.168.1.102:1025")
 epicsEnvSet("PMAC1_IP", "192.168.1.103:1025")
-epicsEnvSet("sys", "SR:C99-ID:G1")
-epicsEnvSet("dev", "ID:1")
+epicsEnvSet("sys", "ID")
+epicsEnvSet("dev", "Test")
 epicsEnvSet ("STREAM_PROTOCOL_PATH", "${TOP}/protocols")
 
 
