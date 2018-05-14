@@ -1,0 +1,15 @@
+
+
+
+record(motor, "$(SYS){$(DEV)}U") {
+  field(DTYP, "asynMotor")
+  field(OUT, "@asyn(PMAC1CS2,6)")
+  field(EGU, "um")
+  field(DESC, "Upper Girder Position")
+  field(MRES, "0.000005")
+  field(RTRY, "0")
+  field(NTM, "NO")
+  field(VELO, "100")
+  field(ACCL, "100000")
+  field(PREC, "1")
+}
