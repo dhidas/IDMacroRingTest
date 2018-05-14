@@ -102,6 +102,7 @@ I117,2,400=1       ; Program max acceleratio
 I119,2,400=10       ; Jog max acceleration
 I122,2,400=200          ; Max jog speed [cts/msec]
 I123,2,400=-200          ; Max jog speed [cts/msec]
+I128,2,400=4000          ; In-position band
 
 // Channels 1,5 PID Gains (with default clock settings):
 ;I130,2,400=11190      ; Motors 1-8 Proportional Gain

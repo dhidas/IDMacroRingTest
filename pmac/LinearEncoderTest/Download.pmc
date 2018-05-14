@@ -7,3 +7,5 @@
 
 #include "PROG12_CoordSystem.pmc"
 #include "PROG13_CoordSystemTilt.pmc"
+
+#include "PLC18_PositionReporting.pmc"
