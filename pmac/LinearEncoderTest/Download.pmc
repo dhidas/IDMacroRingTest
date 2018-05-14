@@ -4,3 +4,6 @@
 #include "PLC01.pmc"
 #include "PLC02_Home.pmc"
 #include "PLCC0.pmc"
+
+#include "PROG12_CoordSystem.pmc"
+#include "PROG13_CoordSystemTilt.pmc"

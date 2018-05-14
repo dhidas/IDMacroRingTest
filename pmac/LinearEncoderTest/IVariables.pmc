@@ -30,8 +30,6 @@ M906->X:$78B34,0,24,U
 
 
 
-
-
 // Encoder Conversion Table, for channels 1
 I8000=$078000     ; Entry 1 incremental encoder, no extension
 
@@ -47,7 +45,9 @@ I8004 = $278B34   ; Parallel Y-word data, no filtering
 I8005 = $01F000   ; 26 (+5 for fractional shift above)-bit with LSB at 0
 
 // End of table
-I8006=$000000
+I8006=$E20205
+I8007=$E00205
+I8008=$000000
 
 // Channels 1-4 Output Mode Select, Encoder/Decode
 I7016,4,10=3      ; Servo IC 0, Channels 1
@@ -77,11 +77,16 @@ I100,8,100=0      ; Channels 1-4 inactive
 
 I100,2,100=1            ; Channel 1,2 active
 I500,2,100=1            ; Channel 5,6 active
+I700=1
+I800=1
+
 
 I103=$3503 I104=$3503 ; Channel 1 position and velocity pointers
 I203=$3501 I204=$3501 ; Channel 2 position and velocity pointers
 I503=$3506 I504=$3506 ; Channel 5 position and velocity pointers
 I603=$3504 I604=$3504 ; Channel 6 position and velocity pointers
+I703=$3507 I704=$3507
+I803=$3508 I804=$3508
 
 I110=$78B24         ; Power on servo position address
 I510=$78B34         ; Power on servo position address
@@ -89,11 +94,11 @@ I510=$78B34         ; Power on servo position address
 I195=$200000        ; Power on sevo position format
 I595=$200000        ; Power on sevo position format
 
-I111,2,400=1000000          ; Max program speed [cts/msec]
+I111,2,400=1000000          ; Following limit
 
 I115,2,400=10       ; Program max acceleratio
-I116,2,400=1100          ; Max program speed [cts/msec]
-I117,2,400=10       ; Program max acceleratio
+I116,2,400=200          ; Max program speed [cts/msec]
+I117,2,400=1       ; Program max acceleratio
 I119,2,400=10       ; Jog max acceleration
 I122,2,400=200          ; Max jog speed [cts/msec]
 I123,2,400=-200          ; Max jog speed [cts/msec]
