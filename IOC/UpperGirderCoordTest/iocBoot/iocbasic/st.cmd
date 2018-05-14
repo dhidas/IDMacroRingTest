@@ -32,13 +32,14 @@ pmacCreateController("PMAC1", "P0", 0, 9, 50, 500)
 # PMAC1CS2 Upper Girder position microns
 
 # Create CS (ControllerPort, Addr, CSNumber, CSRef, Prog)
-pmacAsynCoordCreate("P0", 0, 2, 0, 1)
+pmacAsynCoordCreate("P0", 0, 3, 0, 13)
 
 # Configure CS (PortName, DriverName, CSRef, NAxes)
 drvAsynMotorConfigure("PMAC1CS2", "pmacAsynCoord", 0, 9)
 
 # Set scale factor (CS_Ref, axis, stepsPerUnit)
-pmacSetCoordStepsPerUnit(0, 6, 200000.0)
+pmacSetCoordStepsPerUnit(0, 6, 200000)
+pmacSetCoordStepsPerUnit(0, 7, 200000)
 
 # Set Idle and Moving poll periods (CS_Ref, PeriodMilliSeconds)
 pmacSetCoordIdlePollPeriod(0, 500)
