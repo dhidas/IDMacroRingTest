@@ -15,7 +15,8 @@ epicsEnvSet("PMACUTIL", "/usr/share/epics-pmacutil-dev")
 epicsEnvSet("PMAC1_IP", "192.168.1.103:1025")
 epicsEnvSet("sys", "ID")
 epicsEnvSet("dev", "Test")
-epicsEnvSet ("STREAM_PROTOCOL_PATH", "${TOP}/protocols")
+#epicsEnvSet ("STREAM_PROTOCOL_PATH", "${TOP}/protocols")
+epicsEnvSet ("STREAM_PROTOCOL_PATH", "/usr/share/epics-pmacutil-dev/protocol")
 
 
 ## Register all support components
