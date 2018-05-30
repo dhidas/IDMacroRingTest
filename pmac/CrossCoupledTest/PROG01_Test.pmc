@@ -1,0 +1,56 @@
+
+CLOSE
+
+/* INSERTION DEVICE CROSS-COUPLED DRIVE OF GANTRY SYSTEM
+Motors #1 (X1) and #5 (X2) are the driving gantry, which has direct encoder feedback on registers $3503 (I8002) and $3506 (I8005). The reversed feedback signal of motor #5 is assigned to encoder channel 9.
+NOTE: To invert the Servo IC m Channel n PFM Direction signal, I7mn8 needs to be changed from 0 to 1. When I7mn8 is set to 1, a positive direction command provides a high output. This needs to be applied for servo ic 2 channel 1, i.e. axis 9. Otherwise, the A and B signals need to be swapped on the motor cable.
+*/
+
+&1
+#1->200000X
+#2->200000C
+#3->200000X
+#5->200000C
+
+OPEN PROG 1 CLEAR
+LINEAR
+INC
+TA10
+TM1000
+X20000 C0
+CLOSE
+
+/*
+OPEN PROG 1
+CLEAR
+LINEAR
+ABS
+TA0
+TS0
+
+While (1 = 1)
+X 9
+DWELL100
+X 5
+DWELL100
+X 1
+DWELL100
+X 5
+DWELL100
+EndWhile
+
+CLOSE
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+

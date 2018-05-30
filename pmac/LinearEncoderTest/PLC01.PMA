@@ -1,0 +1,19 @@
+; Created by PMAC Win32 Driver from:\\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\PLC01.pmc
+;
+;\\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\PLC01.pmc
+Open PLC 1;3
+disable PLC 0;5
+disable PLCC 0..31;6
+disable PLC 2..31;7
+CMD^K;8
+I5112=1000*8388608/I10 WHILE(I5112>0) ENDWHILE;10
+M95 = $63220B;13
+M96 = $63220B;14
+M902 = $21149A;17
+M906 = $21149A;18
+I5112=1000*8388608/I10 WHILE(I5112>0) ENDWHILE;20
+CMD "#1$ #5$";22
+I5112=1000*8388608/I10 WHILE(I5112>0) ENDWHILE;24
+disable plc 1;26
+close;28
+CLOSE

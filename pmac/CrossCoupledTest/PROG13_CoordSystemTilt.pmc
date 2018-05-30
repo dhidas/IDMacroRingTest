@@ -1,0 +1,54 @@
+#1->0
+#5->0
+
+CLOSE
+
+/* INSERTION DEVICE COORDINATE SYSTEM
+;; Defined axes:
+;; - MTR1_POS = motor #1 position
+;; - MTR5_POS = motor #5 position
+;; - HEIGHT (X addr 6) = elevation/height of surface in EGUs (mm)
+;; - TILT (Y addr 7) = tilt/angle of the surface in i15 units
+*/
+
+i5313=50   ; segmentation time (needed for lookahead)
+i5320=50   ; lookahead length (needed to limit max velocity to max set in CS)
+i5350=1    ; Enable kinematics
+
+&3
+#1->I
+#5->I
+
+
+OPEN FORWARD CLEAR
+Q7 = (P1 + P5) / 200000 / 2
+Q8 = (P1 - P5) / 2 / 200000
+CLOSE
+
+OPEN INVERSE CLEAR
+P1 = (Q7 + Q8/4) * 200000 
+P5 = (Q7 - Q8/4) * 200000
+CLOSE
+
+/* INSERTION DEVICE MOTION PROGRAM
+;This program defines the program needed to do a move using the motor record
+;on a CS axis
+;to do a move we need to do &2R
+;to stop a move we need to do &2A
+;demand values are in &2 Q71..79
+;The following are set by the motor record:
+;Isx87 = Acceleration
+;Isx88 = S curve
+;Isx89 = Feedrate
+*/
+
+OPEN PROG 13
+CLEAR
+LINEAR
+ABS
+
+FRAX(X,Y)
+F(1)
+X(Q77)Y(Q78)
+DWELL0
+CLOSE

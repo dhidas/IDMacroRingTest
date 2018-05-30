@@ -1,0 +1,21 @@
+;Log created by PMAC Win32 Driver from file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.pmc
+;
+000001:            Processing Macro File: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.pmc
+000002:            $C1DD0
+000003:            Including file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\IVariables.pmc
+000004:            Including file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\MVariables.pmc
+000005:            Including file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\PROG01_Test.pmc
+000006:            Including file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\PLC01.pmc
+000007:            Including file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\PLC02_Home.pmc
+000008:            Including file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\PLCC0.pmc
+000009:            Total Lines: 8633
+000010:            Compiling for PLCC: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.PMA = \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.56K
+000011:            PLCC Compiling PMAC file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.PMA
+000012:            Success in Compiling to output file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.56K
+000013:            PLCC(s) used 120 program memory locations
+000014:            Downloading file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.56K
+000015:            Downloaded 8491 lines in 3605 msecs
+000016:            Writing MAP file: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.MAP
+000017:            Writing macro dictionary table: \\psf\Home\Desktop\IDMacroRingTest\pmac\LinearEncoderTest\Download.TBL
+000018:            Total Warnings: 0
+000019:            Total Errors: 0

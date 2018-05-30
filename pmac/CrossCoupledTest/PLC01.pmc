@@ -1,0 +1,28 @@
+Open PLC 1
+
+ena plc 18
+
+disable PLC 0
+disable PLCC 0..31
+disable PLC 2..17
+CMD^K
+
+
+; Setting global control registers
+M95 = $63220B
+M96 = $63220B
+
+; Setting channel control registers
+M904 = $21149A
+M906 = $21149A
+
+
+CMD "#3$ #5$"
+
+
+disable plc 1
+
+
+
+close
+
